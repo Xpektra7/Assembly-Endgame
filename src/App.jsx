@@ -3,48 +3,51 @@ import Dialog from "./Dialog";
 import Keyboard from "./Keyboard";
 import Monitor from "./Monitor";
 import Hostage from "./Hostage";
+import wordy from "./Wordy";
 
 export default function App() {
   const [gameState, setGameState] = useState(true);
   const [wordTray, setTray] = useState([]);
   const [misses, setMisses] = useState("");
   const [message, setMessage] = useState("");
-  let count = 0;
-
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log("rendered");
-    const word = "missisippi";
-    const tray = [...word].map((e) => {
-      return { letter: e, selected: false };
-    });
-    setTray(tray);
-    setMisses(0);
-    setMessage("")
+    if(gameState){
+      console.log("rendered");
+      const word = wordy;
+      const tray = [...word].map((e) => {
+        return { letter: e, selected: false };
+      });
+      setTray(tray);
+      setMisses(0);
+      setMessage("")}
   }, [gameState]);
 
-  wordTray.forEach((element) => {
-    if (element.selected === true) {
-      count += 1;
-    }
-  });
+  useEffect(() => {
+    const selectedCount = wordTray.filter(e => e.selected).length;
+    setCount(selectedCount);
+  }, [wordTray]);
+  
+
 
   useEffect(() => {
-    if(count >= wordTray.length){
-      setMessage("You Win")
-    } 
-    else if(count == 0){
-      setMessage("")
-    } 
-
-    if(misses >= 8 || count >= wordTray.length){
-      setGameState(false)
+    if (wordTray.length === 0) return; // ignore first empty render
+  
+    if (count >= wordTray.length) {
+      setMessage(`You saved ${8 - misses} languages :)`);
+      setGameState(false);
     }
-  },[count,wordTray.length,misses])
-
+    if (count === 0 && misses === 0) {
+      setMessage("");
+    }
+    if (misses >= 8) {
+      setGameState(false);
+    }
+  }, [count, wordTray, misses]);
 
   return (
-    <section>
+    <section> 
       <div className="title">
         <h1>Assembly: Endgame</h1>
         <p>
@@ -53,9 +56,9 @@ export default function App() {
         </p>
       </div>
 
-      <Dialog message={message} />
+      <Dialog message={message} count={count} wordTray={wordTray} />
       <Hostage misses={misses} />
-      <Monitor wordTray={wordTray} />
+      <Monitor wordTray={wordTray} gameState={gameState} />
       <Keyboard
         wordTray={wordTray}
         gameState={gameState}
@@ -67,9 +70,9 @@ export default function App() {
         message={message}
         setMessage={setMessage}
       />
-      {(misses >= 8 || count >= wordTray.length) ? <button className="reset" onClick={() => {
-        setGameState(prev => !prev)
-        count = 0
+      {(!gameState) ? <button className="reset" onClick={() => {
+        setGameState(true)
+        setCount(0)
       }}>Play Again</button>:null}
     </section>
   );
