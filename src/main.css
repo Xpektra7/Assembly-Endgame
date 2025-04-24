@@ -60,6 +60,7 @@ section{
             justify-content: center;    
             background-color: hsl(268, 100%, 50%);  
             font-size: .75rem;
+            font-family: 500;
             padding: .5rem 1rem;
             width: fit-content;
             border-radius: .5rem;  
