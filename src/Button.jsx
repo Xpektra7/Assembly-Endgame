@@ -46,7 +46,6 @@ export default function Button(props) {
       setAmong(false);
       assignMessage(props.misses + 1);
     }
-    console.log('among:', among,letter);
 
   }
 

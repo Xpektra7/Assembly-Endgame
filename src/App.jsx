@@ -14,7 +14,6 @@ export default function App() {
 
   useEffect(() => {
     if (gameState) {
-      console.log("rendered");
       const word = wordy();
       const tray = [...word].map((e) => {
         return { letter: e, selected: false };
