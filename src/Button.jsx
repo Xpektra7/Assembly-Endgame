@@ -43,8 +43,10 @@ export default function Button(props) {
       props.setMessage("");
     } else {
       props.setMisses((prev) => prev + 1);
+      setAmong(false);
       assignMessage(props.misses + 1);
     }
+    console.log('among:', among,letter);
 
   }
 
