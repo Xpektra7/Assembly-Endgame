@@ -16,7 +16,6 @@
     "openai": "^4.89.1",
     "react": "^19.0.0-rc.1",
     "react-dom": "^19.0.0-rc.1",
-    "react-markdown": "^10.1.0",
     "transformers": "^1.8.3"
   },
   "devDependencies": {
