@@ -19,12 +19,13 @@ button:disabled,button[disabled]{
     color: whitesmoke;
     background-color: hsl(0, 0%, 15%);
 }
-button:disabled.among{
-    border:solid 2px hsl(120, 100%, 25%);
-}
-button:disabled.selected:not(.among){
+button:disabled.selected,
+button[disabled].selected{
     border:solid 2px hsl(0, 100%, 25%);
-
+}
+button:disabled.selected.among,
+button[disabled].selected.among{
+    border:solid 2px hsl(120, 100%, 25%);
 }
 section{
     display: flex;
