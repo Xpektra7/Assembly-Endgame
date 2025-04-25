@@ -19,14 +19,6 @@ button:disabled,button[disabled]{
     color: whitesmoke;
     background-color: hsl(0, 0%, 15%);
 }
-button:disabled.selected,
-button[disabled].selected{
-    border:solid 2px hsl(0, 100%, 25%);
-}
-button:disabled.selected.among,
-button[disabled].selected.among{
-    border:solid 2px hsl(120, 100%, 25%);
-}
 section{
     display: flex;
     flex-direction: column;
@@ -123,10 +115,19 @@ section{
     border-radius: .5rem;  
     box-shadow: 0 2px 10px hsl(0, 0%, 10%);
 }
-button.letter.selected{
+button:disabled,button[disabled]{
+    color: whitesmoke;
+    background-color: hsl(0, 0%, 15%);
+}
+
+button.letter.selected,
+button:disabled.letter.selected,
+button[disabled].letter.selected{
     border:solid 2px hsl(0, 100%, 25%);
 }
-.letter.selected.among{
+button.letter.selected.among,
+button:disabled.letter.selected.among,
+button[disabled].letter.selected.among{
     border:solid 2px hsl(120, 100%, 25%);
 }
 
