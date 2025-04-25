@@ -35,12 +35,16 @@ export default function App() {
 
     if (count >= wordTray.length) {
       if (misses === 0) {
-        setMessage("You saved the programming world from Assembly :)");
-      } else if (misses === 1) {
+        setMessage("Even the Avengers couldn't save everyone, you're just built differently ");
+      } else if (misses === 7) {
         setMessage("You're lucky to still have C");
+      } else if (misses === 6) {
+        setMessage("That was close");
+      } else if (misses === 5) {
+        setMessage("I guess we now have to make frontend apps with Python");
       } else if (misses > 0) {
         setMessage(
-          `You saved the programming world from Assembly with ${misses} misses :)`
+          `You saved the programming world from Assembly with ${misses} deaths :)`
         );
       }
       setGameState(false);

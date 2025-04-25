@@ -6,6 +6,7 @@ export default function Button(props) {
 
   useEffect(() => {
     select(false);
+    setAmong(false);
   }, [props.gameState]);
 
   function assignMessage(count) {
