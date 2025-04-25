@@ -31,6 +31,7 @@ export default function Button(props) {
 
   function checkLetter(letter) {
     select(true);
+    setAmong(false)
     const word = [];
     props.wordTray.forEach((e) => word.push(e.letter));
 
@@ -42,9 +43,9 @@ export default function Button(props) {
         )
       );
       props.setMessage("");
-    } else {
+    }
+    else {
       props.setMisses((prev) => prev + 1);
-      setAmong(false);
       assignMessage(props.misses + 1);
     }
 
