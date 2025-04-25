@@ -31,7 +31,7 @@ export default function Button(props) {
 
   function checkLetter(letter) {
     select(true);
-    setAmong(false)
+    setAmong(false);
     const word = [];
     props.wordTray.forEach((e) => word.push(e.letter));
 
