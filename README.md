@@ -1,11 +1,8 @@
-# Chef Claude
+# Assembly Endgame 
 
-Chef Claude is an AI-powered application that receives a list of ingredients and suggests a recipe using most of the provided ingredients while minimizing the additional ingredients it adds. The project leverages AI to create practical and efficient meal suggestions.
+
 
 ## Features
-- Accepts a list of ingredients from users
-- Generates recipes using most of the provided ingredients
-- Minimizes additional ingredients while ensuring a balanced recipe
 
 ## Technologies Used
 - React
@@ -15,7 +12,7 @@ Chef Claude is an AI-powered application that receives a list of ingredients and
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/chef-claude.git
+   git clone https://github.com/yourusername/assemblygame.git
    ```
 2. Navigate into the project directory:
    ```sh
